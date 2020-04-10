@@ -1,0 +1,3 @@
+//Setting search engine
+addSearchAliasX('z', '知乎', 'https://www.zhihu.com/search?type=content&q=', 's', 'o');
+addSearchAliasX('l', 'Bilibili', 'https://search.bilibili.com/all?keyword=', 's', 'o');
