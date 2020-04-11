@@ -1,7 +1,6 @@
 //Search in new Tab.
 addSearchAliasX('z', '知乎', 'https://www.zhihu.com/search?type=content&q=', 's');
 addSearchAliasX('l', '哔哩哔哩', 'https://search.bilibili.com/all?keyword=', 's');
-addSearchAliasX('z', '知乎', 'https://www.zhihu.com/search?type=content&q=', 's');
 
 //Open a searchbar.
 //ZhiHu
