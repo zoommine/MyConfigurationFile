@@ -1,2 +1,20 @@
-addSearchAliasX('z', '知乎', 'https://www.zhihu.com/search?type=content&q=', 's', 'o');
-addSearchAliasX('l', 'Bilibili', 'https://search.bilibili.com/all?keyword=', 's', 'o');
+//Search in new Tab.
+addSearchAliasX('z', '知乎', 'https://www.zhihu.com/search?type=content&q=', 's');
+addSearchAliasX('l', '哔哩哔哩', 'https://search.bilibili.com/all?keyword=', 's');
+addSearchAliasX('z', '知乎', 'https://www.zhihu.com/search?type=content&q=', 's');
+
+//Open a searchbar.
+//ZhiHu
+mapkey('oz', '#8Open Search with alias z', function() {
+    Front.openOmnibar({type: "SearchEngine", extra: "z"});
+});
+vmapkey('oz', '#8Open Search with alias z', function() {
+    Front.openOmnibar({type: "SearchEngine", extra: "z"});
+});
+//Bilibili
+mapkey('ol', '#8Open Search with alias l', function() {
+    Front.openOmnibar({type: "SearchEngine", extra: "l"});
+});
+vmapkey('oz', '#8Open Search with alias z', function() {
+    Front.openOmnibar({type: "SearchEngine", extra: "z"});
+});
