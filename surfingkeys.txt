@@ -22,19 +22,36 @@ vmapkey('oz', '#8Open Search with alias z', function() {
 //Speed up
 mapkey('ae', 'Increase audio playback speed', function() {
     var video = document.querySelector('video');
-	if(video.playbackRate == 1.0){
+	if(video.playbackRate === 1.0){
 		video.playbackRate = 1.5;
 	}else{
 		video.playbackRate += 0.25;
 	}
-}
+});
+mapkey('ae', 'Increase audio playback speed', function() {
+    var video = document.querySelector('video');
+	if(video.playbackRate === 1.0){
+		video.playbackRate = 1.5;
+	}else{
+		video.playbackRate += 0.25;
+	}
+});
 //Speed down
 mapkey('ad', 'Decrease audio playback speed', function() {
     var video = document.querySelector('video');
 	video.playbackRate -= 0.25;
-}
+});
+vmapkey('ad', 'Decrease audio playback speed', function() {
+    var video = document.querySelector('video');
+	video.playbackRate -= 0.25;
+});
 //Start play
-mapkey('as', 'Choose a tab', function() {
-    document.querySelector('video').video.play();
-}
+mapkey('as', 'Toggle video playback pause', function() {
+    var video = document.querySelector('video');
+	video.paused === true ? video.play() : video.pause();
+});
+vmapkey('as', 'Toggle video playback pause', function() {
+    var video = document.querySelector('video');
+	video.paused === true ? video.play() : video.pause();
+});
 
