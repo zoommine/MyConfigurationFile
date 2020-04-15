@@ -1,4 +1,4 @@
-//Search in new Tab.
+﻿//Search in new Tab.
 addSearchAliasX('z', '知乎', 'https://www.zhihu.com/search?type=content&q=', 's');
 addSearchAliasX('l', '哔哩哔哩', 'https://search.bilibili.com/all?keyword=', 's');
 
@@ -17,3 +17,24 @@ mapkey('ol', '#8Open Search with alias l', function() {
 vmapkey('oz', '#8Open Search with alias z', function() {
     Front.openOmnibar({type: "SearchEngine", extra: "z"});
 });
+
+//Setting audio speed(Only used for H5 Audio)
+//Speed up
+mapkey('ae', 'Increase audio playback speed', function() {
+    var video = document.querySelector('video');
+	if(video.playbackRate == 1.0){
+		video.playbackRate = 1.5;
+	}else{
+		video.playbackRate += 0.25;
+	}
+}
+//Speed down
+mapkey('ad', 'Decrease audio playback speed', function() {
+    var video = document.querySelector('video');
+	video.playbackRate -= 0.25;
+}
+//Start play
+mapkey('as', 'Choose a tab', function() {
+    document.querySelector('video').video.play();
+}
+
