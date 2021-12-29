@@ -1,16 +1,17 @@
-﻿//Search in new Tab.
+﻿//------Search in new Tab.
 addSearchAliasX('z', '知乎', 'https://www.zhihu.com/search?type=content&q=', 's');
 addSearchAliasX('l', '哔哩哔哩', 'https://search.bilibili.com/all?keyword=', 's');
 
-//Open a searchbar.
-//ZhiHu
+
+//------Open a searchbar.
+//---ZhiHu
 mapkey('oz', '#8Open Search with alias z', function() {
     Front.openOmnibar({type: "SearchEngine", extra: "z"});
 });
 vmapkey('oz', '#8Open Search with alias z', function() {
     Front.openOmnibar({type: "SearchEngine", extra: "z"});
 });
-//Bilibili
+//---Bilibili
 mapkey('ol', '#8Open Search with alias l', function() {
     Front.openOmnibar({type: "SearchEngine", extra: "l"});
 });
@@ -18,8 +19,9 @@ vmapkey('oz', '#8Open Search with alias z', function() {
     Front.openOmnibar({type: "SearchEngine", extra: "z"});
 });
 
-//Setting audio speed(Only used for H5 Audio)
-//Speed up
+
+//------Setting audio speed(Only used for H6 Audio)
+//---Speed up
 mapkey('ae', 'Increase audio playback speed', function() {
     var video = document.querySelector('video');
 	if(video.playbackRate === 1.0){
@@ -28,7 +30,7 @@ mapkey('ae', 'Increase audio playback speed', function() {
 		video.playbackRate += 0.25;
 	}
 });
-mapkey('ae', 'Increase audio playback speed', function() {
+vmapkey('ae', 'Increase audio playback speed', function() {
     var video = document.querySelector('video');
 	if(video.playbackRate === 1.0){
 		video.playbackRate = 1.5;
@@ -36,7 +38,7 @@ mapkey('ae', 'Increase audio playback speed', function() {
 		video.playbackRate += 0.25;
 	}
 });
-//Speed down
+//---Speed down
 mapkey('ad', 'Decrease audio playback speed', function() {
     var video = document.querySelector('video');
 	video.playbackRate -= 0.25;
@@ -45,7 +47,7 @@ vmapkey('ad', 'Decrease audio playback speed', function() {
     var video = document.querySelector('video');
 	video.playbackRate -= 0.25;
 });
-//Start play
+//---Start play
 mapkey('as', 'Toggle video playback pause', function() {
     var video = document.querySelector('video');
 	video.paused === true ? video.play() : video.pause();
@@ -54,7 +56,12 @@ vmapkey('as', 'Toggle video playback pause', function() {
     var video = document.querySelector('video');
 	video.paused === true ? video.play() : video.pause();
 });
-// Unlock reading restrictions
-vmapkey('ur', 'Unlock reading restrictions', function() {
-	var currentsite%3Ddocument.querySelector("meta%5Bproperty%3D'al%3Aandroid%3Aapp_name'%5D")%3Fdocument.querySelector("meta%5Bproperty%3D'al%3Aandroid%3Aapp_name'%5D").content%3Awindow.location.href%3Bfunction isPage(b)%7Bconsole.log(b%2B" "%2Bcurrentsite.includes(b))%3Breturn currentsite.includes(b)%7Dfunction process(b)%7Bvar a%3Db%3BisPage("NYTimes")%26%26(document.querySelector("html").innerHTML%3Da)%3BisPage("Medium")%26%26(a%3Db.replace(%2F<%5C%2F%3Fnoscript>%2Fg%2C"")%2Cdocument.querySelector("html").innerHTML%3Da)%3Bif(isPage("Bloomberg")%7C%7CisPage("businessinsider"))a%3Ddocument.createElement("html")%2Ca.innerHTML%3Db%2Ca.querySelectorAll("script").forEach(function(a)%7Breturn a.outerHTML%3D""%7D)%2Ca%3Da.outerHTML%2Cdocument.open()%2Cdocument.write(a)%2Cdocument.close()%3BisPage("businessinsider")%26%26(a%3Ddocument.createElement("html")%2Ca.innerHTML%3Db%2Ca.querySelectorAll("script").forEach(function(a)%7Breturn a.outerHTML%3D""%7D)%2Ca.querySelectorAll("figure").forEach(function(a)%7Ba.innerHTML%3Da.querySelector("noscript").innerHTML%7D)%2Ca%3Da.outerHTML%2Cdocument.open()%2Cdocument.write(a)%2Cdocument.close())%7Dfetch(window.location.href%2C%7Bcredentials%3A"omit"%2Credirect%3A"follow"%2Cmode%3A"no-cors"%7D).then(function(b)%7Breturn b.text()%7D).then(function(b)%7Bprocess(b)%7D)%3Bvoid+0;
-});
+
+
+//------Map key
+cmap('<Alt-j>','<Ctrl-n>');
+cmap('<Alt-k>','<Ctrl-p>');
+cmap('<Alt-l>','<Ctrl-.>');
+cmap('<Alt-h>','<Ctrl-,>');
+
+imap(',,', "<Esc>");
