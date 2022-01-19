@@ -1,21 +1,47 @@
-﻿//------Search in new Tab.
-addSearchAliasX('z', '知乎', 'https://www.zhihu.com/search?type=content&q=', 's');
-addSearchAliasX('l', '哔哩哔哩', 'https://search.bilibili.com/all?keyword=', 's');
-
+﻿// update setting since 1.0
+const {
+    addSearchAlias,
+    cmap,
+    getBrowserName,
+    getFormData,
+    map,
+    imap,
+    mapkey,
+    readText,
+    tabOpenLink,
+    vmapkey,
+    Clipboard,
+    Hints,
+    Front,
+    RUNTIME
+} = api;
+//------Search in new Tab.
+//------Search in new Tab.
+addSearchAlias('z', '知乎', 'https://www.zhihu.com/search?type=content&q=', 's', 'https://www.zhihu.com/api/v4/search/suggest?q=', function(response){
+    const obj = JSON.parse(response.text);
+    const sug = obj.suggest.map(item=>item.query);
+    return sug.length>0 ? sug : [];
+});
+addSearchAlias('l', '哔哩哔哩', 'https://search.bilibili.com/all?keyword=', 's', 'https://s.search.bilibili.com/main/suggest?main_ver=v1&term=', function(response){
+    const results = JSON.parse(response.text).result;
+    console.log(JSON.parse(response.text))
+    console.log(results)
+    return results.length===0 ? [] : results.tag.map(item=>item.value);
+});
 
 //------Open a searchbar.
 //---ZhiHu
-mapkey('oz', '#8Open Search with alias z', function() {
+mapkey('oz', 'Search in 知乎', function() {
     Front.openOmnibar({type: "SearchEngine", extra: "z"});
 });
-vmapkey('oz', '#8Open Search with alias z', function() {
+vmapkey('oz', 'Search in 知乎', function() {
     Front.openOmnibar({type: "SearchEngine", extra: "z"});
 });
 //---Bilibili
-mapkey('ol', '#8Open Search with alias l', function() {
+mapkey('ol', 'Search in 哔哩哔哩', function() {
     Front.openOmnibar({type: "SearchEngine", extra: "l"});
 });
-vmapkey('oz', '#8Open Search with alias z', function() {
+vmapkey('oz', 'Search in 哔哩哔哩', function() {
     Front.openOmnibar({type: "SearchEngine", extra: "z"});
 });
 
@@ -54,7 +80,7 @@ mapkey('as', 'Toggle video playback pause', function() {
 });
 vmapkey('as', 'Toggle video playback pause', function() {
     var video = document.querySelector('video');
-	video.paused === true ? video.play() : video.pause();
+	video.paused === true ? vieo.play() : video.pause();
 });
 
 
