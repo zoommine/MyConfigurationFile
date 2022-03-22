@@ -91,3 +91,6 @@ cmap('<Alt-l>','<Ctrl-.>');
 cmap('<Alt-h>','<Ctrl-,>');
 
 imap(',,', "<Esc>");
+
+// own setting
+settings.historyMUOrder = false;
